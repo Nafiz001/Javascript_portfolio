@@ -26,7 +26,7 @@ import "./styles.css";
 const siteProps = {
   name: "Md. Nafiz Ahmed",
   title: "Computer Science Student",
-  email: "nafizahmed000",
+  email: "nafizahmed000@gmail.com",
   gitHub: "Nafiz001",
   instagram: "nafiz_ahmed/",
   linkedIn: "nafiz-ahmed-770a3a273/",
