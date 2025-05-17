@@ -30,7 +30,6 @@ const siteProps = {
   gitHub: "Nafiz001",
   instagram: "nafiz_ahmed/",
   linkedIn: "nafiz-ahmed-770a3a273/",
-  medium: "",
   twitter: "Nafizahmed000",
 };
 
