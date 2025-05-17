@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "Educator JS Codespace Template",
   "source": "src/index.html",
-  "homepage": "http://Nafiz001.github.io/Javascript_portfolio",
+  "homepage": "https://github.com/Nafiz001/Javascript_portfolio",
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-    "build-gh": "parcel build --public-url 'https://Nafiz001.github.io/Javascript_portfolio'",
+    "build-gh": "parcel build --public-url 'https://github.com/Nafiz001/Javascript_portfolio'",
     "predeploy": "npm run build-gh",
     "deploy": "gh-pages -d dist"
   },
