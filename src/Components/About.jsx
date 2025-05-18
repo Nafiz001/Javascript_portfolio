@@ -78,6 +78,7 @@ const About = () => {
         }}
       />
       <div
+        className="about-section"
         style={{
           backgroundColor: "white",
           width: "50%",

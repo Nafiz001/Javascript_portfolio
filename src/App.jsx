@@ -4,7 +4,7 @@
  * To contain application wide settings, routes, state, etc.
  */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Education from "./Components/Education";
 import About from "./Components/About";
 import Footer from "./Components/Footer";
@@ -46,6 +46,35 @@ const App = () => {
     setDark((d) => !d);
     document.body.classList.toggle("dark-mode", !dark);
   };
+
+  useEffect(() => {
+    // Create trailing cursor
+    const trail = document.createElement("div");
+    trail.className = "cursor-trail";
+    document.body.appendChild(trail);
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let trailX = mouseX;
+    let trailY = mouseY;
+    const move = (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    };
+    document.addEventListener("mousemove", move);
+    let running = true;
+    function animate() {
+      trailX += (mouseX - trailX) * 0.22;
+      trailY += (mouseY - trailY) * 0.22;
+      trail.style.transform = `translate(${trailX}px, ${trailY}px)`;
+      if (running) requestAnimationFrame(animate);
+    }
+    animate();
+    return () => {
+      running = false;
+      document.removeEventListener("mousemove", move);
+      if (trail.parentNode) trail.parentNode.removeChild(trail);
+    };
+  }, []);
 
   return (
     <div id="main">
