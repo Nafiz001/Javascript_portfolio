@@ -35,15 +35,30 @@ const Home = ({ name, title }) => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        flexDirection: "row",
+        flexWrap: "wrap",
       }}
     >
-      <div style={{ flex: "0 0 auto", marginLeft: "4vw", zIndex: 2 }}>
+      <div
+        style={{
+          flex: "0 0 auto",
+          margin: "4vw 0 0 4vw",
+          zIndex: 2,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <img
           src={require("../images/IMG_20231015_191152_409.jpg")}
           alt="Myself"
           style={{
-            width: "180px",
-            height: "180px",
+            width: "32vw",
+            maxWidth: "180px",
+            minWidth: "120px",
+            height: "32vw",
+            maxHeight: "180px",
+            minHeight: "120px",
             borderRadius: "50%",
             objectFit: "cover",
             boxShadow: "0 4px 24px rgba(78,86,126,0.18)",
@@ -54,16 +69,35 @@ const Home = ({ name, title }) => {
       </div>
       <div
         style={{
-          flex: "1 1 0",
+          flex: "1 1 240px",
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
-          marginLeft: "3vw",
+          margin: "3vw 4vw 0 3vw",
           zIndex: 2,
+          minWidth: "200px",
         }}
       >
-        <h1>{name}</h1>
-        <h2>{title}</h2>
+        <h1
+          style={{
+            fontSize: "7vw",
+            minFontSize: "2rem",
+            maxWidth: "90vw",
+            wordBreak: "break-word",
+          }}
+        >
+          {name}
+        </h1>
+        <h2
+          style={{
+            fontSize: "4vw",
+            minFontSize: "1.2rem",
+            maxWidth: "90vw",
+            wordBreak: "break-word",
+          }}
+        >
+          {title}
+        </h2>
       </div>
       <div
         style={{
@@ -92,7 +126,15 @@ const Home = ({ name, title }) => {
           zIndex: 1,
         }}
       />
-      <div style={{ position: "absolute", bottom: "3rem", left: "50%", zIndex: 2 }}>
+      <div
+        style={{
+          position: "absolute",
+          bottom: "3rem",
+          left: "50%",
+          zIndex: 2,
+          transform: "translateX(-50%)",
+        }}
+      >
         <img src={arrowSvg} style={{ height: "3rem", width: "3rem" }} alt={imageAltText} />
       </div>
     </section>
