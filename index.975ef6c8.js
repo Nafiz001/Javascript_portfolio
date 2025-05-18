@@ -27102,7 +27102,10 @@ var _home = require("./Components/Home");
 var _homeDefault = parcelHelpers.interopDefault(_home);
 var _portfolio = require("./Components/Portfolio");
 var _portfolioDefault = parcelHelpers.interopDefault(_portfolio);
+var _animatedDivider = require("./Components/AnimatedDivider");
+var _animatedDividerDefault = parcelHelpers.interopDefault(_animatedDivider);
 var _stylesCss = require("./styles.css");
+var _s = $RefreshSig$();
 /**
  * This object represents your information. The project is set so that you
  * only need to update these here, and values are passed a properties to the
@@ -27123,35 +27126,111 @@ var _stylesCss = require("./styles.css");
 const primaryColor = "#4E567E";
 const secondaryColor = "#D2F1E4";
 const App = ()=>{
+    _s();
+    // Dark/light mode toggle
+    const [dark, setDark] = (0, _react.useState)(false);
+    // Toggle theme
+    const toggleTheme = ()=>{
+        setDark((d)=>!d);
+        document.body.classList.toggle("dark-mode", !dark);
+    };
+    (0, _react.useEffect)(()=>{
+        // Create trailing cursor
+        const trail = document.createElement("div");
+        trail.className = "cursor-trail";
+        document.body.appendChild(trail);
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let trailX = mouseX;
+        let trailY = mouseY;
+        const move = (e)=>{
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        };
+        document.addEventListener("mousemove", move);
+        let running = true;
+        function animate() {
+            trailX += (mouseX - trailX) * 0.22;
+            trailY += (mouseY - trailY) * 0.22;
+            trail.style.transform = `translate(${trailX}px, ${trailY}px)`;
+            if (running) requestAnimationFrame(animate);
+        }
+        animate();
+        return ()=>{
+            running = false;
+            document.removeEventListener("mousemove", move);
+            if (trail.parentNode) trail.parentNode.removeChild(trail);
+        };
+    }, []);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         id: "main",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {}, void 0, false, {
                 fileName: "src/App.jsx",
-                lineNumber: 42,
+                lineNumber: 81,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                onClick: toggleTheme,
+                style: {
+                    position: "fixed",
+                    top: 16,
+                    right: 16,
+                    zIndex: 2000,
+                    background: dark ? "#222" : "#fff",
+                    color: dark ? "#fff" : "#222",
+                    border: "1px solid #4E567E",
+                    borderRadius: "50%",
+                    width: 44,
+                    height: 44,
+                    fontSize: 22,
+                    cursor: "pointer",
+                    boxShadow: "0 2px 8px #0002"
+                },
+                "aria-label": "Toggle dark mode",
+                title: "Toggle dark mode",
+                children: dark ? "☀️" : "\uD83C\uDF19"
+            }, void 0, false, {
+                fileName: "src/App.jsx",
+                lineNumber: 82,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _homeDefault.default), {
-                name: siteProps.name,
-                title: siteProps.title
+                name: siteProps.name ?? "",
+                title: siteProps.title ?? ""
             }, void 0, false, {
                 fileName: "src/App.jsx",
-                lineNumber: 43,
+                lineNumber: 104,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _animatedDividerDefault.default), {}, void 0, false, {
+                fileName: "src/App.jsx",
+                lineNumber: 105,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _aboutDefault.default), {}, void 0, false, {
                 fileName: "src/App.jsx",
-                lineNumber: 44,
+                lineNumber: 106,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _animatedDividerDefault.default), {}, void 0, false, {
+                fileName: "src/App.jsx",
+                lineNumber: 107,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _educationDefault.default), {}, void 0, false, {
                 fileName: "src/App.jsx",
-                lineNumber: 45,
+                lineNumber: 108,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _animatedDividerDefault.default), {}, void 0, false, {
+                fileName: "src/App.jsx",
+                lineNumber: 109,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _portfolioDefault.default), {}, void 0, false, {
                 fileName: "src/App.jsx",
-                lineNumber: 46,
+                lineNumber: 110,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _footerDefault.default), {
@@ -27160,16 +27239,17 @@ const App = ()=>{
                 secondaryColor: secondaryColor
             }, void 0, false, {
                 fileName: "src/App.jsx",
-                lineNumber: 47,
+                lineNumber: 111,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/App.jsx",
-        lineNumber: 41,
+        lineNumber: 80,
         columnNumber: 5
     }, undefined);
 };
+_s(App, "NIHBMCmnQYc/ThVDFkFE1j89faA=");
 _c = App;
 exports.default = App;
 var _c;
@@ -27180,7 +27260,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Components/Education":"6QZcy","./Components/About":"kouZu","./Components/Footer":"7GWgX","./Components/Header":"9Dt2F","./Components/Home":"jIEVO","./Components/Portfolio":"lCaEt","./styles.css":"lW6qc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"6QZcy":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Components/Education":"6QZcy","./Components/About":"kouZu","./Components/Footer":"7GWgX","./Components/Header":"9Dt2F","./Components/Home":"jIEVO","./Components/Portfolio":"lCaEt","./styles.css":"lW6qc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Components/AnimatedDivider":"kBU55"}],"6QZcy":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$8bef = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27547,6 +27627,7 @@ const About = ()=>{
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "about-section",
                 style: {
                     backgroundColor: "white",
                     width: "50%",
@@ -27561,7 +27642,7 @@ const About = ()=>{
                         children: "About Myself"
                     }, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 91,
+                        lineNumber: 92,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27569,12 +27650,12 @@ const About = ()=>{
                         children: description
                     }, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 92,
+                        lineNumber: 93,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 93,
+                        lineNumber: 94,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("ul", {
@@ -27589,17 +27670,17 @@ const About = ()=>{
                                 children: skill
                             }, skill, false, {
                                 fileName: "src/Components/About.jsx",
-                                lineNumber: 104,
+                                lineNumber: 105,
                                 columnNumber: 13
                             }, undefined))
                     }, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 94,
+                        lineNumber: 95,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 107,
+                        lineNumber: 108,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -27609,7 +27690,7 @@ const About = ()=>{
                         children: detailOrQuote
                     }, void 0, false, {
                         fileName: "src/Components/About.jsx",
-                        lineNumber: 108,
+                        lineNumber: 109,
                         columnNumber: 9
                     }, undefined)
                 ]
@@ -29197,6 +29278,109 @@ $RefreshReg$(_c, "Portfolio");
 },{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../images/design-desk.jpeg":"jSSP3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jSSP3":[function(require,module,exports) {
 module.exports = require("./helpers/bundle-url").getBundleURL("bLxZJ") + "design-desk.df4cd0cf.jpeg" + "?" + Date.now();
 
-},{"./helpers/bundle-url":"lgJ39"}],"lW6qc":[function() {},{}]},["1xC6H","ShInH","8lqZg"], "8lqZg", "parcelRequire6158")
+},{"./helpers/bundle-url":"lgJ39"}],"lW6qc":[function() {},{}],"kBU55":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$6a71 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$6a71.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+const AnimatedDivider = ()=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
+        className: "divider-svg",
+        viewBox: "0 0 1440 60",
+        fill: "none",
+        xmlns: "http://www.w3.org/2000/svg",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("defs", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("linearGradient", {
+                    id: "dividerGradient",
+                    x1: "0",
+                    y1: "0",
+                    x2: "1440",
+                    y2: "60",
+                    gradientUnits: "userSpaceOnUse",
+                    children: [
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("stop", {
+                            stopColor: "#00d4ff"
+                        }, void 0, false, {
+                            fileName: "src/Components/AnimatedDivider.jsx",
+                            lineNumber: 14,
+                            columnNumber: 9
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("stop", {
+                            offset: "0.5",
+                            stopColor: "#ff0096"
+                        }, void 0, false, {
+                            fileName: "src/Components/AnimatedDivider.jsx",
+                            lineNumber: 15,
+                            columnNumber: 9
+                        }, undefined),
+                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("stop", {
+                            offset: "1",
+                            stopColor: "#ffd700"
+                        }, void 0, false, {
+                            fileName: "src/Components/AnimatedDivider.jsx",
+                            lineNumber: 16,
+                            columnNumber: 9
+                        }, undefined)
+                    ]
+                }, void 0, true, {
+                    fileName: "src/Components/AnimatedDivider.jsx",
+                    lineNumber: 6,
+                    columnNumber: 7
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/Components/AnimatedDivider.jsx",
+                lineNumber: 5,
+                columnNumber: 5
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("animate", {
+                    attributeName: "d",
+                    dur: "6s",
+                    repeatCount: "indefinite",
+                    values: "M0,30 Q360,60 720,30 T1440,30;M0,40 Q360,10 720,40 T1440,40;M0,30 Q360,60 720,30 T1440,30"
+                }, void 0, false, {
+                    fileName: "src/Components/AnimatedDivider.jsx",
+                    lineNumber: 20,
+                    columnNumber: 7
+                }, undefined)
+            }, void 0, false, {
+                fileName: "src/Components/AnimatedDivider.jsx",
+                lineNumber: 19,
+                columnNumber: 5
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
+                d: "M0,30 Q360,60 720,30 T1440,30",
+                stroke: "url(#dividerGradient)",
+                strokeWidth: "6",
+                fill: "none"
+            }, void 0, false, {
+                fileName: "src/Components/AnimatedDivider.jsx",
+                lineNumber: 27,
+                columnNumber: 5
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "src/Components/AnimatedDivider.jsx",
+        lineNumber: 4,
+        columnNumber: 3
+    }, undefined);
+_c = AnimatedDivider;
+exports.default = AnimatedDivider;
+var _c;
+$RefreshReg$(_c, "AnimatedDivider");
+
+  $parcel$ReactRefreshHelpers$6a71.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["1xC6H","ShInH","8lqZg"], "8lqZg", "parcelRequire6158")
 
 //# sourceMappingURL=index.975ef6c8.js.map
