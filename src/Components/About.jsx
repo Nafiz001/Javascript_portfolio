@@ -59,7 +59,8 @@ const About = () => {
           height: "100%",
           zIndex: 0,
           pointerEvents: "none",
-          background: "linear-gradient(120deg, rgba(78,86,126,0.3), rgba(0,212,255,0.2), rgba(255,0,150,0.2))",
+          background:
+            "linear-gradient(120deg, rgba(78,86,126,0.3), rgba(0,212,255,0.2), rgba(255,0,150,0.2))",
         }}
       />
       <img
