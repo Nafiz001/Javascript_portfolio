@@ -49,8 +49,33 @@ const detailOrQuote =
 
 const About = () => {
   return (
-    <section className="padding" id="about">
-      <img className="background" src={image} alt={imageAltText} style={{ opacity: 0.5 }} />
+    <section className="padding" id="about" style={{ position: "relative", overflow: "hidden" }}>
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 0,
+          pointerEvents: "none",
+          background: "linear-gradient(120deg, rgba(78,86,126,0.3), rgba(0,212,255,0.2), rgba(255,0,150,0.2))",
+        }}
+      />
+      <img
+        className="background"
+        src={image}
+        alt={imageAltText}
+        style={{
+          opacity: 0.5,
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          zIndex: 1,
+        }}
+      />
       <div
         style={{
           backgroundColor: "white",
@@ -58,6 +83,8 @@ const About = () => {
           padding: "4rem",
           margin: "3rem auto",
           textAlign: "center",
+          position: "relative",
+          zIndex: 2,
         }}
       >
         <h2>About Myself</h2>
