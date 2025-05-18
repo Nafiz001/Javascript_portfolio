@@ -44,13 +44,21 @@
       });
 
       // Particle system
+      const colorPalette = [
+        'rgba(78,86,126,0.7)', // Indigo
+        'rgba(0,212,255,0.7)', // Cyan
+        'rgba(255,0,150,0.7)', // Pink
+        'rgba(255,255,255,0.8)', // White
+        
+      ];
       const particles = Array.from({ length: 40 }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
         vx: (Math.random() - 0.5) * 1.2,
         vy: (Math.random() - 0.5) * 1.2,
-        radius: 2 + Math.random() * 2,
-        color: `rgba(78,86,126,${0.2 + Math.random() * 0.5})`
+        radius: 8 + Math.random() * 10, // Bigger dots
+        color: colorPalette[Math.floor(Math.random() * colorPalette.length)],
+        shadowColor: colorPalette[Math.floor(Math.random() * colorPalette.length)],
       }));
 
       function animate() {
@@ -62,11 +70,15 @@
           // Bounce off edges
           if (p.x < 0 || p.x > width) p.vx *= -1;
           if (p.y < 0 || p.y > height) p.vy *= -1;
-          // Draw particle
+          // Draw 3D-like particle (with shadow)
+          ctx.save();
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.radius, 0, 2 * Math.PI);
           ctx.fillStyle = p.color;
+          ctx.shadowColor = p.shadowColor;
+          ctx.shadowBlur = 24;
           ctx.fill();
+          ctx.restore();
           // Draw line to mouse if close
           const dist = Math.hypot(p.x - mouse.x, p.y - mouse.y);
           if (dist < 120) {
