@@ -26,7 +26,45 @@ const imageAltText = "Whitish abstract background with a hint of color";
 
 const Home = ({ name, title }) => {
   return (
-    <section id="home" className="min-height" style={{ position: "relative", overflow: "hidden" }}>
+    <section
+      id="home"
+      className="min-height"
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <div style={{ flex: "0 0 auto", marginLeft: "4vw", zIndex: 2 }}>
+        <img
+          src={require("../images/IMG_20231015_191152_409.jpg")}
+          alt="Myself"
+          style={{
+            width: "180px",
+            height: "180px",
+            borderRadius: "50%",
+            objectFit: "cover",
+            boxShadow: "0 4px 24px rgba(78,86,126,0.18)",
+            border: "4px solid #fff",
+            background: "#eee",
+          }}
+        />
+      </div>
+      <div
+        style={{
+          flex: "1 1 0",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          marginLeft: "3vw",
+          zIndex: 2,
+        }}
+      >
+        <h1>{name}</h1>
+        <h2>{title}</h2>
+      </div>
       <div
         style={{
           position: "absolute",
@@ -54,10 +92,6 @@ const Home = ({ name, title }) => {
           zIndex: 1,
         }}
       />
-      <div style={{ position: "absolute", top: "5rem", left: "2rem", width: "17rem", zIndex: 2 }}>
-        <h1>{name}</h1>
-        <h2>{title}</h2>
-      </div>
       <div style={{ position: "absolute", bottom: "3rem", left: "50%", zIndex: 2 }}>
         <img src={arrowSvg} style={{ height: "3rem", width: "3rem" }} alt={imageAltText} />
       </div>

@@ -16,7 +16,8 @@ const Education = () => {
           height: "100%",
           zIndex: 0,
           pointerEvents: "none",
-          background: "linear-gradient(120deg, rgba(255,215,0,0.15), rgba(0,255,127,0.15), rgba(0,212,255,0.12))"
+          background:
+            "linear-gradient(120deg, rgba(255,215,0,0.15), rgba(0,255,127,0.15), rgba(0,212,255,0.12))",
         }}
       ></div>
       <div className="education" style={{ position: "relative", zIndex: 1 }}>

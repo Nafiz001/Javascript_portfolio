@@ -72,11 +72,20 @@ const Portfolio = () => {
           height: "100%",
           zIndex: 0,
           pointerEvents: "none",
-          background: "linear-gradient(120deg, rgba(0,212,255,0.18), rgba(255,0,150,0.18), rgba(255,255,255,0.12))",
+          background:
+            "linear-gradient(120deg, rgba(0,212,255,0.18), rgba(255,0,150,0.18), rgba(255,255,255,0.12))",
         }}
       />
       <h2 style={{ textAlign: "center", position: "relative", zIndex: 1 }}>Portfolio</h2>
-      <div style={{ display: "flex", flexDirection: "row", paddingTop: "3rem", position: "relative", zIndex: 1 }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          paddingTop: "3rem",
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
         <div style={{ maxWidth: "40%", alignSelf: "center" }}>
           <img
             src={image}
