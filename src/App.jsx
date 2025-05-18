@@ -74,8 +74,8 @@ const App = () => {
         {dark ? "☀️" : "🌙"}
       </button>
       <Home
-        name={<Typing text={siteProps.name} speed={80} />}
-        title={<Typing text={siteProps.title} speed={60} />}
+        name={<Typing key={siteProps.name} text={siteProps.name || ""} speed={80} />}
+        title={<Typing key={siteProps.title} text={siteProps.title || ""} speed={60} />}
       />
       <AnimatedDivider />
       <About />
