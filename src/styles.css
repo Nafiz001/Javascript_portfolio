@@ -19,6 +19,31 @@ body {
   touch-action: manipulation;
 }
 
+body.dark-mode {
+  background: #181a23;
+  color: #f3f3f3;
+}
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode p, body.dark-mode li, body.dark-mode a {
+  color: #f3f3f3;
+}
+body.dark-mode .container .box {
+  background: #23263a;
+  border-color: #333a5e;
+  color: #f3f3f3;
+}
+body.dark-mode .container .box:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+body.dark-mode section img.background {
+  filter: brightness(0.5) grayscale(0.2);
+}
+body.dark-mode #interactive-bg {
+  filter: brightness(0.8) contrast(1.1);
+}
+body.dark-mode .socialIcon {
+  filter: brightness(1.2) grayscale(0.2);
+}
+
 #interactive-bg {
   position: fixed;
   top: 0;
@@ -177,6 +202,17 @@ img.socialIcon {
 img.socialIcon:hover {
   transform: scale(1.18) rotate(-8deg);
   filter: brightness(1.2) drop-shadow(0 2px 8px #4e567e44);
+}
+
+/* Animated SVG divider for sections */
+.divider-svg {
+  display: block;
+  width: 100vw;
+  height: 60px;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
 }
 
 @keyframes slideInLeft {
