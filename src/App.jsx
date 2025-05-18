@@ -12,7 +12,6 @@ import Header from "./Components/Header";
 import Home from "./Components/Home";
 import Portfolio from "./Components/Portfolio";
 import AnimatedDivider from "./Components/AnimatedDivider";
-import Typing from "./Components/Typing";
 
 import "./styles.css";
 
@@ -73,10 +72,7 @@ const App = () => {
       >
         {dark ? "☀️" : "🌙"}
       </button>
-      <Home
-        name={<Typing key={siteProps.name} text={siteProps.name || ""} speed={80} />}
-        title={<Typing key={siteProps.title} text={siteProps.title || ""} speed={60} />}
-      />
+      <Home name={siteProps.name ?? ""} title={siteProps.title ?? ""} />
       <AnimatedDivider />
       <About />
       <AnimatedDivider />

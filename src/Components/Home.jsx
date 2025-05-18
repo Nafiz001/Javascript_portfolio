@@ -8,7 +8,6 @@
 import React from "react";
 import arrowSvg from "../images/down-arrow.svg";
 import PropTypes from "prop-types";
-import Typing from "./Typing";
 
 /**
  * Home background image
@@ -87,7 +86,7 @@ const Home = ({ name, title }) => {
             wordBreak: "break-word",
           }}
         >
-          <Typing text={name} speed={70} />
+          {name}
         </h1>
         <h2
           style={{
@@ -97,7 +96,7 @@ const Home = ({ name, title }) => {
             wordBreak: "break-word",
           }}
         >
-          <Typing text={title} speed={40} />
+          {title}
         </h2>
       </div>
       <div
